@@ -1,0 +1,103 @@
+.create_post-container {
+    margin-top: 70px;
+    min-width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#create_post {
+    min-width: 1200px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    border: 1px solid black;
+    padding:25px;
+}
+
+#create_post .section{
+    margin-bottom: 10px;
+}
+
+#create_post .section-title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 33px;
+    line-height: 39px;
+    color: #000000;
+    margin-bottom: 15px;
+    
+}
+
+#create_post .text-box {
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 26px;
+    background-color: #E7E7E9;
+    color:black;
+    border:none;
+    padding-left: 1%;
+    width:99%;
+    height:44px;
+}
+
+
+#create_post .description-box {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 26px;
+    
+    background-color: #E7E7E9;
+    border:none;
+
+    padding-left: 1%;
+    width:99%;
+    height:244px;
+}
+
+#create_post .row-section {
+    display:flex;
+}
+
+#create_post .smart-section {
+    width:480px;
+}
+
+#create_post .price-section {
+    width:120px;
+}
+
+#create_post .price-box {
+    width:300px;
+}
+
+#create_post .currency{
+    width: 60px;
+    align-self:center;
+    padding-left:10px;
+}
+
+
+#create_post .upload-button {
+    height:39px;
+}
+
+#create_post .upload-description {
+    margin-bottom:50px;
+}
+
+#create_post .submit-section {
+    display: flex;
+    justify-content: center;
+}
+
+#create_post .publish-button {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 33px;
+    line-height: 39px;
+    
+}

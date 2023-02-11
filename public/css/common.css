@@ -1,0 +1,71 @@
+.no-transition * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+}
+
+textarea {
+    resize: none;
+}
+
+body {
+    all: unset;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-bar {
+    background-color: #3B4C61;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    padding: 10px;
+}
+
+.logo {
+    display: flex;
+    margin: 10px;
+    height: 40px;
+    width: auto;
+}
+
+.button {
+    background-color: white;
+    /* Green */
+    border: 1px solid #3B4C61;
+    color: #3B4C61;
+    padding: 8px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0px 20px;
+    cursor: pointer;
+    border-radius: 7px;
+    transition-duration: 0.2s;
+}
+
+.button:hover {
+    background-color: #3B4C61;
+    color: white;
+}
+
+.post-button {
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 29px;
+    align-self: center;
+    background-color: #3B4C61;
+    color: white;
+    border: 1px solid white;
+}
+
+.post-button:hover {
+    background-color: white;
+    color: #3B4C61;
+}

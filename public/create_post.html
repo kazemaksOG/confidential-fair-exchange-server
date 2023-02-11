@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Confidential Fair Exchange</title>
+    <link rel="stylesheet" href="/create_post.css">
+    <link rel="stylesheet" href="/common.css">
+    <script src="/post.js"></script>
+</head>
+
+<body id="body" class="no-transition">
+    <div class="top-bar">
+        <a href="/">
+            <img class="logo" src="/logo.svg" height="20">
+        </a>
+        <a href="/create_post" class="post-button button">
+            Create Post
+        </a>
+    </div>
+    <div class="create_post-container">
+        <form id="create_post">
+            <div class="section">
+                <div class="section-title">Title</div>
+                <input type="text" class="text-box title-box" placeholder="Enter title (max 140 characters)">
+            </div>
+            <div class="section">
+                <div class="section-title">Description</div>
+                <textarea class="description-box" placeholder="Enter description (max 2000 characters)"></textarea>
+            </div>
+
+            <div class="section">
+                <div class="row-section">
+                    <div class="section-title smart-section">Smart contract ID</div>
+                    <input type="text" class="text-box smart-contract-box" placeholder="Enter smart contract ID">
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="row-section">
+                    <div class="section-title price-section">Price</div>
+                    <input type="text" class="text-box price-box" placeholder="Enter price">
+                    <div class="currency">ETH</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="row-section">
+                    <div class="section-title">Signature</div>
+                    <button class="button upload-button"> Upload </button>
+                </div>
+                <div class="upload-description">Allowed file types: .txt</div>
+            </div>
+
+            <div class="section">
+                <div class="row-section">
+                    <div class="section-title">Hashed file</div>
+                    <button class="button upload-button"> Upload </button>
+                </div>
+                <div class="upload-description">Allowed file types: .txt</div>
+            </div>
+
+            <div class="submit-section">
+                <button class="button publish-button"> Publish </button>
+
+            </div>
+
+        </form>
+    </div>
+</body>
+
+</html>
