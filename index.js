@@ -8,22 +8,22 @@ const css_location = "/public/css"
 const js_location = "/public/js"
 
 
-const dummy_posts = [
-    {
-        title: "CIA coup in Africa",
-        description: "The U.S. government was determined to depose Nkrumah before he managed to unite Africa under one government, working with allies such as Great Britain and Canada to finance, mastermind, and guide the coup.[4] According to the U.S. State Department at the time, Nkrumah's overpowering desire to export his brand of nationalism unquestionably made Ghana one of the foremost practitioners of subversion in Africa.",
-        smart_contract_id: "0x2131159ea8ffa3a706cc7041a75e152d7694e6b598e42e8fabf28306e9b5abd2",
-        price: "1.123",
-        hash_of_file: "asfdasfsdafasdgfasdgfasdgfasdgf",
-    },
-    {
-        title: "CIA coup in Africa 2",
-        description: "The U.S. government was determined to depose Nkrumah before he managed to unite Africa under one government, working with allies such as Great Britain and Canada to finance, mastermind, and guide the coup.[4] According to the U.S. State Department at the time, Nkrumah's overpowering desire to export his brand of nationalism unquestionably made Ghana one of the foremost practitioners of subversion in Africa.",
-        smart_contract_id: "0x124124",
-        price: "1.123",
-        hash_of_file: "asfdasfsdafasdgfasdgfasdgfasdgf",
-    }
-]
+const config = {
+    user: "davis",
+    password: "davis",
+    host: "localhost",
+    database: "davis",
+    port: 5432,
+}
+
+const { Client } = require("pg");
+const client = new Client(config);
+
+const insert_query = "INSERT INTO confidential_table(title, description, smart_contract_id, price, hash_of_file) VALUES($1, $2, $3, $4, $5)";
+const get_all_posts_query = "SELECT * FROM confidential_table";
+const get_post_query = "SELECT * FROM confidential_table WHERE smart_contract_id = $1";
+
+client.connect();
 
 const requestListener = function (req, res) {
 
@@ -42,20 +42,9 @@ const requestListener = function (req, res) {
                         res.end(contents);
                     })
                     .catch(err => {
+                        res.setHeader("Content-Type", "application/json");
                         res.writeHead(500);
-                        res.end();
-                    });
-                break;
-            case req.url.match(/\/post\//)?.input:
-                fs.readFile(__dirname + "/public/post.html")
-                    .then(contents => {
-                        res.setHeader("Content-Type", "text/html");
-                        res.writeHead(200);
-                        res.end(contents);
-                    })
-                    .catch(err => {
-                        res.writeHead(500);
-                        res.end();
+                        res.end(JSON.stringify({ error: "Server error" }));
                     });
                 break;
             case "/create_post":
@@ -66,11 +55,12 @@ const requestListener = function (req, res) {
                         res.end(contents);
                     })
                     .catch(err => {
+                        res.setHeader("Content-Type", "application/json");
                         res.writeHead(500);
-                        res.end();
+                        res.end(JSON.stringify({ error: "Server error" }));
                     });
                 break;
-    
+
             case "/logo.svg":
                 fs.readFile(__dirname + image_location + "/logo.svg")
                     .then(contents => {
@@ -79,11 +69,12 @@ const requestListener = function (req, res) {
                         res.end(contents);
                     })
                     .catch(err => {
+                        res.setHeader("Content-Type", "application/json");
                         res.writeHead(500);
-                        res.end();
+                        res.end(JSON.stringify({ error: "Server error" }));
                     });
                 break;
-    
+
             case "/main.css":
                 fs.readFile(__dirname + css_location + "/main.css")
                     .then(contents => {
@@ -92,11 +83,12 @@ const requestListener = function (req, res) {
                         res.end(contents);
                     })
                     .catch(err => {
+                        res.setHeader("Content-Type", "application/json");
                         res.writeHead(500);
-                        res.end();
+                        res.end(JSON.stringify({ error: "Server error" }));
                     });
                 break;
-    
+
             case "/post.css":
                 fs.readFile(__dirname + css_location + "/post.css")
                     .then(contents => {
@@ -105,8 +97,9 @@ const requestListener = function (req, res) {
                         res.end(contents);
                     })
                     .catch(err => {
+                        res.setHeader("Content-Type", "application/json");
                         res.writeHead(500);
-                        res.end();
+                        res.end(JSON.stringify({ error: "Server error" }));
                     });
                 break;
             case "/create_post.css":
@@ -117,8 +110,9 @@ const requestListener = function (req, res) {
                         res.end(contents);
                     })
                     .catch(err => {
+                        res.setHeader("Content-Type", "application/json");
                         res.writeHead(500);
-                        res.end();
+                        res.end(JSON.stringify({ error: "Server error" }));
                     });
                 break;
             case "/common.css":
@@ -129,8 +123,9 @@ const requestListener = function (req, res) {
                         res.end(contents);
                     })
                     .catch(err => {
+                        res.setHeader("Content-Type", "application/json");
                         res.writeHead(500);
-                        res.end();
+                        res.end(JSON.stringify({ error: "Server error" }));
                     });
                 break;
             case "/main.js":
@@ -141,8 +136,9 @@ const requestListener = function (req, res) {
                         res.end(contents);
                     })
                     .catch(err => {
+                        res.setHeader("Content-Type", "application/json");
                         res.writeHead(500);
-                        res.end();
+                        res.end(JSON.stringify({ error: "Server error" }));
                     });
                 break;
             case "/post.js":
@@ -153,11 +149,12 @@ const requestListener = function (req, res) {
                         res.end(contents);
                     })
                     .catch(err => {
+                        res.setHeader("Content-Type", "application/json");
                         res.writeHead(500);
-                        res.end();
+                        res.end(JSON.stringify({ error: "Server error" }));
                     });
                 break;
-    
+
             case "/create_post.js":
                 fs.readFile(__dirname + js_location + "/create_post.js")
                     .then(contents => {
@@ -166,49 +163,122 @@ const requestListener = function (req, res) {
                         res.end(contents);
                     })
                     .catch(err => {
+                        res.setHeader("Content-Type", "application/json");
                         res.writeHead(500);
-                        res.end();
+                        res.end(JSON.stringify({ error: "Server error" }));
                     });
                 break;
-    
-            case "/api/all_posts.json":
-    
-                res.setHeader("Content-Type", "application/json");
-                res.writeHead(200);
-                res.end(JSON.stringify(dummy_posts));
-    
-                break;
-    
-            case "/api/get_post.json":
-                try  { 
-                    const smart_contract_id = JSON.parse(data.toString()).smart_contract_id;
-                    let res_post = null;
-                    for(post of dummy_posts) {
-                        if (post.smart_contract_id == smart_contract_id) {
-                            res_post = post;
-                        }
-                    }
 
-                    if(res_post != null) {
+            case "/api/all_posts.json":
+
+                client.query(get_all_posts_query, (query_error, query_result) => {
+                    if (query_error) {
+                        console.log(query_error.stack);
+                        res.setHeader("Content-Type", "application/json");
+                        res.writeHead(500);
+                        res.end(JSON.stringify({ error: "Server error" }));
+                    } else {
                         res.setHeader("Content-Type", "application/json");
                         res.writeHead(200);
-                        res.end(JSON.stringify(dummy_posts));
-                    } else {
-                        res.writeHead(404);
-                        res.end();
+                        res.end(JSON.stringify(query_result.rows));
                     }
+                })
 
-                } catch(error) {
-                    console.error(error);
+                break;
+
+            case "/api/get_post.json":
+                try {
+                    const smart_contract_id = JSON.parse(data.toString()).smart_contract_id;
+
+                    client.query(get_post_query, [smart_contract_id], (query_error, query_result) => {
+                        if (query_error) {
+                            console.log(query_error.stack);
+                            res.setHeader("Content-Type", "application/json");
+                            res.writeHead(500);
+                            res.end(JSON.stringify({ error: "Server error" }));
+                        } else {
+                            if (query_result.rows.length > 0) {
+                                res.setHeader("Content-Type", "application/json");
+                                res.writeHead(200);
+                                res.end(JSON.stringify(query_result.rows[0]));
+                            } else {
+                                res.setHeader("Content-Type", "application/json");
+                                res.writeHead(404);
+                                res.end(JSON.stringify({ error: "Resource not found" }));
+                            }
+
+                        }
+                    })
+
+
+                } catch (error) {
+                    res.setHeader("Content-Type", "application/json");
                     res.writeHead(500);
-                    res.end();
+                    res.end(JSON.stringify({ error: "Server error" }));
+                }
+
+                break;
+            case "/api/create_post":
+                try {
+                    // should check signature here
+                    const data_json = JSON.parse(data.toString());
+
+
+                    client.query(insert_query,
+                        [
+                            data_json.title,
+                            data_json.description,
+                            data_json.smart_contract_id,
+                            data_json.price,
+                            data_json.hash_of_file,
+                        ],
+                        (query_error, query_result) => {
+                            if (query_error) {
+                                console.log(query_error.stack);
+                                res.setHeader("Content-Type", "application/json");
+                                res.writeHead(500);
+                                res.end(JSON.stringify({ error: "Server error" }));
+                            } else {
+                                res.setHeader("Content-Type", "application/json");
+                                res.writeHead(200);
+                                res.end(JSON.stringify({ response: "All good" }));
+                            }
+                        })
+
+                } catch (error) {
+                    console.error(error);
+                    res.setHeader("Content-Type", "application/json");
+                    res.writeHead(400);
+                    res.end(JSON.stringify({ response: "Bad request" }));
                 }
 
                 break;
             default:
-                res.writeHead(404);
-                res.end(JSON.stringify({ error: "Resource not found" }));
+                // dynamic link case
+                const post_link = req.url.match(/\/post\/0x[0123456789abcdef]{64}/);
+
+                if (post_link != null && post_link[0] === req.url) {
+                    fs.readFile(__dirname + "/public/post.html")
+                        .then(contents => {
+                            res.setHeader("Content-Type", "text/html");
+                            res.writeHead(200);
+                            res.end(contents);
+                        })
+                        .catch(err => {
+                            res.setHeader("Content-Type", "application/json");
+                            res.writeHead(500);
+                            res.end(JSON.stringify({ error: "Server error" }));
+                        });
+                } else {
+                    res.setHeader("Content-Type", "application/json");
+                    res.writeHead(404);
+                    res.end(JSON.stringify({ error: "Resource not found" }));
+                }
+
         }
+
+
+
     });
 
 }

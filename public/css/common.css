@@ -6,6 +6,10 @@
     transition: none !important;
 }
 
+.hide {
+    visibility: hidden;
+}
+
 textarea {
     resize: none;
 }
@@ -50,6 +54,11 @@ body {
 
 .button:hover {
     background-color: #3B4C61;
+    color: white;
+}
+
+.button:active {
+    background-color: #0C2440;
     color: white;
 }
 

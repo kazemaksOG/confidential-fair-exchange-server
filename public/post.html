@@ -18,31 +18,27 @@
         </a>
     </div>
 
-    <div id="post">
-        <div class="post-title">CIA coup in Africa</div>
+    <div id="post" class="hide">
+        <div id="post-title" class="post-title"></div>
         <div class="description-container">
             <div class="description-title">Description:</div>
-            <div class="description-text">The U.S. government was determined to depose Nkrumah before he managed to
-                unite Africa under one government, working with allies such as Great Britain and Canada to finance,
-                mastermind, and guide the coup.[4] According to the U.S. State Department at the time, Nkrumah's
-                overpowering desire to export his brand of nationalism unquestionably made Ghana one of the foremost
-                practitioners of subversion in Africa.</div>
+            <div id="description-text" class="description-text"></div>
         </div>
         <div class="detail-container">
             <div class="detail-title">Details:</div>
             <div class="detail">
                 <div class="detail-text-bold detail-text-smart"> Smart contract ID: </div>
-                <div class="detail-text"> 0x2131159ea8ffa3a706cc7041a75e152d7694e6b598e42e8fabf28306e9b5abd2 </div>
-                <button class="button"> Copy </button>
+                <div id="smart-contract-id" class="detail-text"> 0x2131159ea8ffa3a706cc7041a75e152d7694e6b598e42e8fabf28306e9b5abd2 </div>
+                <button onclick="copy_smart_contract_id()" class="button"> Copy </button>
             </div>
             <div class="detail">
                 <div class="detail-text-bold"> Price: </div>
-                <div class="detail-text"> 1.2 ETH </div>
+                <div id="price" class="detail-text"> 1.2 ETH </div>
             </div>
             <div class="detail">
                 <div class="detail-text-bold detail-text-hash">Hash of the file: </div>
-                <button class="button"> Download </button>
-                <button class="button"> Copy </button>
+                <button class="button" onclick="download()"> Download </button>
+                <button onclick="copy_hash()" class="button"> Copy </button>
             </div>
         </div>
     </div>
