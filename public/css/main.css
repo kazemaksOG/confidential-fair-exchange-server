@@ -17,6 +17,7 @@
     text-decoration: none;
     cursor: pointer;
     color:black;
+    transition-duration: 0.1s;
 }
 
 #posts .post:hover {
