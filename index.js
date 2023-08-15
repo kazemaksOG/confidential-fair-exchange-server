@@ -1,3 +1,5 @@
+const config = require('./config.js').config;
+
 const http = require("http");
 const host = '127.0.0.1';
 const port = 8000;
@@ -8,20 +10,12 @@ const css_location = "/public/css"
 const js_location = "/public/js"
 
 
-const config = {
-    user: "davis",
-    password: "davis",
-    host: "localhost",
-    database: "davis",
-    port: 5432,
-}
-
 const { Client } = require("pg");
 const client = new Client(config);
 
-const insert_query = "INSERT INTO confidential_table(title, description, smart_contract_id, price, hash_of_file) VALUES($1, $2, $3, $4, $5)";
-const get_all_posts_query = "SELECT * FROM confidential_table";
-const get_post_query = "SELECT * FROM confidential_table WHERE smart_contract_id = $1";
+const insert_query = "INSERT INTO document_table(title, description, smart_contract_id, price, hash_of_file) VALUES($1, $2, $3, $4, $5)";
+const get_all_posts_query = "SELECT * FROM document_table";
+const get_post_query = "SELECT * FROM document_table WHERE smart_contract_id = $1";
 
 client.connect();
 
