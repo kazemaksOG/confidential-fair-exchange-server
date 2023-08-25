@@ -5,6 +5,7 @@ The server is expected to be hosted using TOR to introduce more privacy for the 
 
 ## Start the app 
 ```bash
+npm install
 node index.js
 ```
 Note: This assumes you have PostgreSQL already running on the background
