@@ -27,19 +27,47 @@
         <div class="detail-container">
             <div class="detail-title">Details:</div>
             <div class="detail">
+                <div class="detail-text-bold"> Price: </div>
+                <div id="price" class="detail-text"> 1.2 ETH </div>
+            </div>
+
+            <div class="detail">
                 <div class="detail-text-bold detail-text-smart"> Smart contract ID: </div>
                 <div id="smart-contract-id" class="detail-text"> 0x2131159ea8ffa3a706cc7041a75e152d7694e6b598e42e8fabf28306e9b5abd2 </div>
                 <button onclick="copy_smart_contract_id()" class="button"> Copy </button>
             </div>
             <div class="detail">
-                <div class="detail-text-bold"> Price: </div>
-                <div id="price" class="detail-text"> 1.2 ETH </div>
+                <div class="detail-text-bold detail-text-smart"> Random seed: </div>
+                <div id="random-seed" class="detail-text"> </div>
+                <button onclick="copy_random_seed()" class="button"> Copy </button>
             </div>
             <div class="detail">
-                <div class="detail-text-bold detail-text-hash">Hash of the file: </div>
-                <button class="button" onclick="download()"> Download </button>
-                <button onclick="copy_hash()" class="button"> Copy </button>
+                <div class="detail-text-bold detail-text-smart"> Ring signature: </div>
+                <div id="ring-signature" class="detail-text"> </div>
+                <button onclick="copy_ring_signature()" class="button"> Copy </button>
             </div>
+            <div class="detail">
+                <div class="detail-text-bold detail-text-smart"> Public key for secret: </div>
+                <div id="public-key-for-secret" class="detail-text"> </div>
+                <button onclick="copy_public_key_for_secret()" class="button"> Copy </button>
+            </div>
+
+
+
+            <div class="detail">
+                <div class="detail-text-bold detail-text-hash"> Full encrypted file: </div>
+                <button class="button" onclick="download_full_encrypted_file()"> Download </button>
+                <button onclick="copy_full_encrypted_file()" class="button"> Copy </button>
+            </div>
+             <div class="detail">
+                <div class="detail-text-bold detail-text-hash"> Zipped sub files: </div>
+                <button class="button" onclick="download_sub_files()"> Download </button>
+          </div>
+              <div class="detail">
+                <div class="detail-text-bold detail-text-hash">Zipped sub keys: </div>
+                <button class="button" onclick="download_sub_keys()"> Download </button>
+            </div>
+ 
         </div>
     </div>
 </body>

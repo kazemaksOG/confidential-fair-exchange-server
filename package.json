@@ -12,6 +12,7 @@
     "nodemon": "^2.0.20"
   },
   "dependencies": {
+    "formidable": "^3.5.0",
     "pg": "^8.9.0"
   }
 }

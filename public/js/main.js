@@ -21,9 +21,9 @@ window.addEventListener("load", (event) => {
             const post_price = document.createElement("div");
             post_price.className = "post-price";
 
-            post_title.innerHTML = post_data.title;
-            post_description.innerHTML = post_data.description;
-            post_price.innerHTML = post_data.price + " ETH";
+            post_title.textContent = post_data.title;
+            post_description.textContent = post_data.document_description;
+            post_price.textContent = post_data.price + " ETH";
             post.href = "/post/" + post_data.smart_contract_id;
 
             post_info.appendChild(post_title);

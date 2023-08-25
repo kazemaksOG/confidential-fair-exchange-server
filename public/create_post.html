@@ -34,6 +34,28 @@
                     <input id="id-of-post" type="text" class="text-box smart-contract-box" placeholder="Enter smart contract ID">
                 </div>
             </div>
+            <div class="section">
+                <div class="row-section">
+                    <div class="section-title smart-section"> Random seed </div>
+                    <input id="seed-of-post" type="text" class="text-box smart-contract-box" placeholder="Enter random seed given by the blockchain">
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="row-section">
+                    <div class="section-title smart-section"> Ring signature </div>
+                    <input id="ring-signature-of-post" type="text" class="text-box smart-contract-box" placeholder="Enter your ring signature of this document">
+                </div>
+            </div>
+            <div class="section">
+                <div class="row-section">
+                    <div class="section-title smart-section"> Public key </div>
+                    <input id="public-key-of-post" type="text" class="text-box smart-contract-box" placeholder="Enter your public key for secret exchange">
+                </div>
+            </div>
+
+
+
 
             <div class="section">
                 <div class="row-section">
@@ -43,23 +65,40 @@
                 </div>
             </div>
 
+
+
+
+
             <div class="section">
                 <div class="row-section">
-                    <div class="section-title">Signature</div>
-                    <input id="input_signature_file" type="file" style="display: none;">
-                    <button onclick="press_input_signature()" class="button upload-button"> Upload </button>
+                    <div class="section-title">Full encrypted file</div>
+                    <input id="input_full_encrypted_file" type="file" style="display: none;">
+                    <button onclick="press_input_full_encrypted_file()" class="button upload-button"> Upload </button>
                 </div>
-                <div id="upload_signature_file_confirm" class="upload-description">Allowed file types: .txt</div>
+                <div id="upload_full_encrypted_file_confirm" class="upload-description">Allowed file types: .txt</div>
             </div>
 
             <div class="section">
                 <div class="row-section">
-                    <div class="section-title">Hashed file</div>
-                    <input id="input_hashed_file" type="file" style="display: none;">
-                    <button onclick="press_input_hashed()" class="button upload-button"> Upload </button>
+                    <div class="section-title">Zipped sub files</div>
+                    <input id="input_sub_files" type="file" style="display: none;">
+                    <button onclick="press_input_sub_files()" class="button upload-button"> Upload </button>
                 </div>
-                <div id="upload_hashed_file_confirm" class="upload-description">Allowed file types: .txt</div>
+                <div id="upload_sub_files_confirm" class="upload-description">Allowed file types: .zip</div>
             </div>
+
+            <div class="section">
+                <div class="row-section">
+                    <div class="section-title">Zipped sub keys</div>
+                    <input id="input_keys" type="file" style="display: none;">
+                    <button onclick="press_input_keys()" class="button upload-button"> Upload </button>
+                </div>
+                <div id="upload_keys_confirm" class="upload-description">Allowed file types: .zip</div>
+            </div>
+
+
+
+
             <div id="errors" class="section">
             </div>
 

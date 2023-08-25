@@ -6,5 +6,6 @@ module.exports = {
         host: "localhost",
         database: "test_confidential_db",
         port: 5432,
-    }
+    },
+    table_name: "confidential_table"
 }
